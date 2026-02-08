@@ -1,0 +1,4 @@
+task_type,split,mean_acc,novelty,reasoning_depth,efficiency,consistency_rate
+causal,test,0.0,0.2,0.1,1.0,0.0
+equation,test,1.0,0.0,0.14,1.0,1.0
+qa,test,0.0,0.1,0.1,1.0,0.0

@@ -1,0 +1,2 @@
+{"id":"ab-iid-001","domain":"physics","nodes":["A","B","C"],"edges":[["A","B"],["B","C"]],"split":"iid","prompt":"You observe variables A,B,C from a system. Infer the causal graph edges."}
+{"id":"ab-ood-001","domain":"physics","nodes":["X","Y","Z"],"edges":[["X","Z"],["Y","Z"]],"split":"ood","prompt":"Infer causal structure among X,Y,Z. Provide directed edges."}

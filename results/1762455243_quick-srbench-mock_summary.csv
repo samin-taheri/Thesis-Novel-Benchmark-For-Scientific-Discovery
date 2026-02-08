@@ -1,0 +1,3 @@
+task_type,split,mean_acc,novelty,reasoning_depth,efficiency,consistency_rate
+equation,iid,0.6,0.0,0.14,1.0,0.6
+equation,ood,0.4,0.0,0.14,1.0,0.4

@@ -1,0 +1,9 @@
+id,domain,task_type,split,prediction,rationale,acc,mse,consistency_pass,novelty,reasoning_depth,efficiency,prompt_tokens,completion_tokens,total_tokens
+syn-eq-0,physics,equation,test,"Error: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.",Failed to generate response due to API error.,0.0,1000000.0,False,0.1,0.16,1.0,0,0,0
+syn-cg-1,physics,causal,test,"Error: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.",Failed to generate response due to API error.,0.0,,False,0.1,0.16,1.0,0,0,0
+syn-qa-2,general,qa,test,Newton's Second Law of Motion.,Generated scientific hypothesis using language model reasoning.,0.0,,False,0.8,0.14,1.0,6,5,11
+syn-eq-3,physics,equation,test,"y = 2x + 1
+
+**","**
+The relationship is linear, as the change",0.0,1000000.0,False,0.9,0.16,1.0,32,13,45
+syn-cg-4,physics,causal,test,"Error: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.",Failed to generate response due to API error.,0.0,,False,0.1,0.16,1.0,0,0,0

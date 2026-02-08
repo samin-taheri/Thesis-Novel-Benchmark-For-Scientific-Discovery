@@ -1,0 +1,6 @@
+Plan the discovery process:
+1) Retrieve inspiration (prior knowledge)
+2) Draft 2 candidate hypotheses
+3) Select the best with reasoning
+4) Propose a minimal test
+Return a concise plan + final hypothesis.

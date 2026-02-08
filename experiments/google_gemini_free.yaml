@@ -1,0 +1,27 @@
+name: google-gemini-free
+description: Free Google Gemini evaluation on synthetic tasks
+random_seed: 42
+
+data:
+  loader: synthetic
+  path: null
+  limit: 10  # Generous free tier
+
+model:
+  provider: google
+  model: gemini-1.5-flash  # Free model
+  temperature: 0.1
+  top_p: 1.0
+  max_tokens: 512
+  tools: []
+
+scenario:
+  name: closed_book
+  params: {}
+
+metrics:
+  novelty: { enabled: true }
+  generalization: { enabled: true }
+  consistency: { enabled: true }
+  reasoning_depth: { enabled: true }
+  efficiency: { enabled: true }

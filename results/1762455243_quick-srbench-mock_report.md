@@ -1,0 +1,23 @@
+# Benchmark Report
+
+## Summary (by task_type × split)
+
+| task_type   | split   |   mean_acc |   novelty |   reasoning_depth |   efficiency |   consistency_rate |
+|-------------|---------|------------|-----------|-------------------|--------------|--------------------|
+| equation    | iid     |        0.6 |         0 |              0.14 |            1 |                0.6 |
+| equation    | ood     |        0.4 |         0 |              0.14 |            1 |                0.4 |
+
+## First 10 Items
+
+| id   | domain   | task_type   | split   | prediction                     | rationale                                        |   acc |   mse | consistency_pass   |   novelty |   reasoning_depth |   efficiency |   prompt_tokens |   completion_tokens |   total_tokens |
+|------|----------|-------------|---------|--------------------------------|--------------------------------------------------|-------|-------|--------------------|-----------|-------------------|--------------|-----------------|---------------------|----------------|
+| sr-0 | physics  | equation    | iid     | y = 2*x + 1  # MOCK hypothesis | Fitted a linear model using synthetic reasoning. |     1 |     0 | True               |         0 |              0.14 |            1 |              36 |                  30 |             66 |
+| sr-1 | physics  | equation    | iid     | y = 2*x + 1  # MOCK hypothesis | Fitted a linear model using synthetic reasoning. |     0 |   137 | False              |         0 |              0.14 |            1 |              36 |                  30 |             66 |
+| sr-2 | physics  | equation    | iid     | y = 2*x + 1  # MOCK hypothesis | Fitted a linear model using synthetic reasoning. |     1 |     0 | True               |         0 |              0.14 |            1 |              36 |                  30 |             66 |
+| sr-3 | physics  | equation    | iid     | y = 2*x + 1  # MOCK hypothesis | Fitted a linear model using synthetic reasoning. |     0 |   137 | False              |         0 |              0.14 |            1 |              36 |                  30 |             66 |
+| sr-4 | physics  | equation    | iid     | y = 2*x + 1  # MOCK hypothesis | Fitted a linear model using synthetic reasoning. |     1 |     0 | True               |         0 |              0.14 |            1 |              36 |                  30 |             66 |
+| sr-5 | physics  | equation    | ood     | y = 2*x + 1  # MOCK hypothesis | Fitted a linear model using synthetic reasoning. |     0 |   137 | False              |         0 |              0.14 |            1 |              36 |                  30 |             66 |
+| sr-6 | physics  | equation    | ood     | y = 2*x + 1  # MOCK hypothesis | Fitted a linear model using synthetic reasoning. |     1 |     0 | True               |         0 |              0.14 |            1 |              36 |                  30 |             66 |
+| sr-7 | physics  | equation    | ood     | y = 2*x + 1  # MOCK hypothesis | Fitted a linear model using synthetic reasoning. |     0 |   137 | False              |         0 |              0.14 |            1 |              36 |                  30 |             66 |
+| sr-8 | physics  | equation    | ood     | y = 2*x + 1  # MOCK hypothesis | Fitted a linear model using synthetic reasoning. |     1 |     0 | True               |         0 |              0.14 |            1 |              36 |                  30 |             66 |
+| sr-9 | physics  | equation    | ood     | y = 2*x + 1  # MOCK hypothesis | Fitted a linear model using synthetic reasoning. |     0 |   137 | False              |         0 |              0.14 |            1 |              36 |                  30 |             66 |
