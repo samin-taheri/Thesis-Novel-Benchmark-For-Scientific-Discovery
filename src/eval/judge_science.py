@@ -36,6 +36,7 @@ def _score_causal(item: TaskItem, pred: str) -> Dict[str, Any]:
         "edge_precision": float(m["edge_precision"]),
         "edge_recall": float(m["edge_recall"]),
         "edge_f1": float(m["edge_f1"]),
+        "shd": float(m.get("shd", 0.0)),
         "consistency_pass": acc >= 0.8,
     }
 

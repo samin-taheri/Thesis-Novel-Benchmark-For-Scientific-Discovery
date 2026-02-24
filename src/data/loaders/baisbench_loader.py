@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 from typing import List, Optional
-
 from ..schemas import TaskItem
+import json
 
 
 def load_baisbench(path: Optional[str] = None, limit: Optional[int] = 20) -> List[TaskItem]:
@@ -15,8 +15,17 @@ def load_baisbench(path: Optional[str] = None, limit: Optional[int] = 20) -> Lis
     replace this stub with a parser that maps BaisBench examples -> TaskItem.
     """
 
-    n = limit or 10
     items: List[TaskItem] = []
+    if path:
+        with open(path, "r", encoding="utf-8") as f:
+            for line in f:
+                rec = json.loads(line)
+                items.append(TaskItem(**rec))
+                if limit and len(items) >= limit:
+                    break
+        return items
+
+    n = limit or 10
 
     # Placeholder: biology/omics-style discovery tasks that benefit from tool use.
     for i in range(n):

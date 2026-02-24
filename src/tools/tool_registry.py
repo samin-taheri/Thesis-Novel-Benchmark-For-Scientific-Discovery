@@ -5,6 +5,7 @@ from typing import Any, Dict, List, Optional
 
 from .python_tool import PythonTool
 from .retrieval_tool import RetrievalTool
+from .oracle_tool import OracleTool
 
 
 @dataclass
@@ -13,6 +14,7 @@ class ToolRegistry:
 
     python: PythonTool
     retrieval: RetrievalTool
+    oracle: OracleTool
 
     @classmethod
     def from_config(cls, tool_names: List[str] | None, corpus_path: str) -> "ToolRegistry":
@@ -20,6 +22,7 @@ class ToolRegistry:
         return cls(
             python=PythonTool(),
             retrieval=RetrievalTool(corpus_path=corpus_path),
+            oracle=OracleTool(),
         )
 
     def list_enabled(self, tool_names: List[str] | None) -> List[str]:
@@ -30,6 +33,8 @@ class ToolRegistry:
             enabled.append("python")
         if "retrieval" in allowed or "docs" in allowed:
             enabled.append("retrieval")
+        if "oracle" in allowed:
+            enabled.append("oracle")
         return enabled
 
     def run(self, tool: str, payload: Dict[str, Any]) -> Dict[str, Any]:
@@ -44,4 +49,10 @@ class ToolRegistry:
                     domain=payload.get("domain"),
                 ),
             }
+        if tool == "oracle":
+            # Oracle needs access to the current task instance; pass it via payload['item'].
+            item = payload.get("item")
+            if not isinstance(item, dict):
+                return {"ok": False, "error": "oracle payload must include item dict under key 'item'"}
+            return self.oracle.run(item=item, payload=payload)
         return {"ok": False, "error": f"Unknown tool: {tool}"}

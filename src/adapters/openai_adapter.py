@@ -12,8 +12,8 @@ class OpenAIAdapter(BaseAdapter):
                 "OPENAI_API_KEY environment variable is required.\n"
                 "To fix this:\n"
                 "1. Get an API key from https://platform.openai.com/api-keys\n"
-                "2. Set it: export OPENAI_API_KEY='sk-your-key-here'\n"
-                "3. Or use mock adapter by changing 'provider: openai' to 'provider: mock' in your YAML"
+                "2. Set it, e.g.: export OPENAI_API_KEY='YOUR_OPENAI_KEY_HERE'\n"
+                "3. Or use the mock adapter by changing 'provider: openai' to 'provider: mock' in your YAML"
             )
         self.client = openai.OpenAI(api_key=api_key)
     

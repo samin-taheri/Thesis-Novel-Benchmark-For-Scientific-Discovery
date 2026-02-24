@@ -12,7 +12,7 @@ class GoogleAdapter(BaseAdapter):
                 "GOOGLE_API_KEY environment variable is required.\n"
                 "To fix this:\n"
                 "1. Get an API key from https://ai.google.dev/\n"
-                "2. Set it: export GOOGLE_API_KEY='your-key-here'\n"
+                "2. Set it, e.g.: export GOOGLE_API_KEY='YOUR_GOOGLE_KEY_HERE'\n"
                 "3. Or use mock adapter by changing 'provider: google' to 'provider: mock' in your YAML"
             )
         genai.configure(api_key=api_key)

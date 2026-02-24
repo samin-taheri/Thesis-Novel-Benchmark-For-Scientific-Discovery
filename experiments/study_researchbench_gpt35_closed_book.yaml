@@ -1,0 +1,20 @@
+name: study-researchbench
+description: Study run (ResearchBench placeholder) - OpenAI GPT-3.5 - closed_book
+random_seed: 42
+
+data:
+  loader: researchbench
+  path: null
+  limit: 30
+
+model:
+  provider: openai
+  model: gpt-3.5-turbo
+  temperature: 0.1
+  top_p: 1.0
+  max_tokens: 512
+  tools: []
+
+scenario:
+  name: closed_book
+  params: {}

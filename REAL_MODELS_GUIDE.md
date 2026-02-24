@@ -5,7 +5,7 @@ This guide shows you how to switch from the mock adapter to real LLM providers i
 ## ✅ **What's Now Available**
 
 After setup, you now have:
-- ✅ Mock adapter (for testing) 
+- ✅ Mock adapter (for testing)
 - ✅ OpenAI adapter (GPT-4, GPT-3.5, etc.)
 - ✅ Anthropic adapter (Claude-3, etc.)
 - ✅ Google adapter (Gemini Pro, etc.)
@@ -14,12 +14,14 @@ After setup, you now have:
 
 ## 🔑 **Step 1: Get API Keys**
 
+Never commit API keys to git. Use environment variables or a local (untracked) script like `setup_keys.sh`.
+
 ### OpenAI
 1. Go to https://platform.openai.com/api-keys
 2. Create a new API key
 3. Set environment variable:
 ```bash
-export OPENAI_API_KEY="sk-your-openai-key-here"
+export OPENAI_API_KEY="YOUR_OPENAI_KEY_HERE"
 ```
 
 ### Anthropic
@@ -27,7 +29,7 @@ export OPENAI_API_KEY="sk-your-openai-key-here"
 2. Create a new API key
 3. Set environment variable:
 ```bash
-export ANTHROPIC_API_KEY="sk-ant-your-anthropic-key-here"
+export ANTHROPIC_API_KEY="YOUR_ANTHROPIC_KEY_HERE"
 ```
 
 ### Google
@@ -35,7 +37,7 @@ export ANTHROPIC_API_KEY="sk-ant-your-anthropic-key-here"
 2. Create a new API key
 3. Set environment variable:
 ```bash
-export GOOGLE_API_KEY="your-google-api-key-here"
+export GOOGLE_API_KEY="YOUR_GOOGLE_KEY_HERE"
 ```
 
 ## 🧪 **Step 2: Test with Small Experiments**
@@ -45,7 +47,7 @@ Start with small experiments to avoid high costs:
 ### OpenAI GPT-4
 ```bash
 # Set your API key first
-export OPENAI_API_KEY="your-key-here"
+export OPENAI_API_KEY="YOUR_OPENAI_KEY_HERE"
 
 # Run small experiment (5 items only)
 python run_experiment.py experiments/openai_gpt4_experiment.yaml
@@ -54,7 +56,7 @@ python run_experiment.py experiments/openai_gpt4_experiment.yaml
 ### Anthropic Claude
 ```bash
 # Set your API key first
-export ANTHROPIC_API_KEY="your-key-here"
+export ANTHROPIC_API_KEY="YOUR_ANTHROPIC_KEY_HERE"
 
 # Run small experiment (5 items only)
 python run_experiment.py experiments/anthropic_claude_experiment.yaml
@@ -63,7 +65,7 @@ python run_experiment.py experiments/anthropic_claude_experiment.yaml
 ### Google Gemini
 ```bash
 # Set your API key first
-export GOOGLE_API_KEY="your-key-here"
+export GOOGLE_API_KEY="YOUR_GOOGLE_KEY_HERE"
 
 # Run small experiment (5 items only)
 python run_experiment.py experiments/google_gemini_experiment.yaml

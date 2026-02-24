@@ -3,11 +3,12 @@ pyyaml>=6.0
 numpy>=1.26
 pandas>=2.2
 scikit-learn>=1.5
-networkx>=3.3
+networkx>=3.2
 sympy>=1.13
 matplotlib>=3.8
 tqdm>=4.66
 tabulate>=0.9
+python-dotenv>=1.0
 
 # Real model API clients
 openai>=2.7

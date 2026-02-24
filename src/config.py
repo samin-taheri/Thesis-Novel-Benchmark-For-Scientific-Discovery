@@ -7,7 +7,7 @@ class ModelSpec(BaseModel):
     temperature: float = 0.0
     top_p: float = 1.0
     max_tokens: int = 1024
-    tools: List[str] = []   # e.g., ["python", "retrieval"]
+    tools: List[str] = []   # e.g., ["python", "retrieval", "oracle"]
 
 class ScenarioSpec(BaseModel):
     name: str  # closed_book|tool_assisted|agentic_tool_use|decomposition|interactive

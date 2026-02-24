@@ -9,6 +9,10 @@ and for prototyping a **new benchmark** (novelty/generalization/consistency).
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
+# Add API keys (for real providers)
+cp .env.example .env
+# then edit .env and fill your keys
+
 # Dry run with MOCK model + synthetic tasks
 python run_experiment.py experiments/example_autobench.yaml
 ```

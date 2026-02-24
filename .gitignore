@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Local environment files
+.env
+.env.local
+
+# Results / logs (generated)
+logs/
+results/
+
+# OS
+.DS_Store

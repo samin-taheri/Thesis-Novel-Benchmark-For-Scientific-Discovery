@@ -132,7 +132,7 @@ To use real LLM providers instead of the mock adapter:
 
 ### OpenAI
 ```bash
-export OPENAI_API_KEY="your-api-key"
+export OPENAI_API_KEY="YOUR_OPENAI_KEY_HERE"
 ```
 
 Update YAML:
@@ -145,7 +145,7 @@ model:
 
 ### Anthropic
 ```bash
-export ANTHROPIC_API_KEY="your-api-key"
+export ANTHROPIC_API_KEY="YOUR_ANTHROPIC_KEY_HERE"
 ```
 
 Update YAML:
@@ -158,7 +158,7 @@ model:
 
 ### Google
 ```bash
-export GOOGLE_API_KEY="your-api-key"
+export GOOGLE_API_KEY="YOUR_GOOGLE_KEY_HERE"
 ```
 
 Update YAML:

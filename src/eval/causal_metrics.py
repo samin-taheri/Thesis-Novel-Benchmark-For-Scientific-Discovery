@@ -20,7 +20,7 @@ def gold_edges(item_gold) -> Set[str]:
 def score_predicted_edges(pred_text: str, gold: Set[str]) -> Dict[str, float]:
     pred = set(extract_edges(pred_text))
     if not gold:
-        return {"edge_precision": 0.0, "edge_recall": 0.0, "edge_f1": 0.0}
+        return {"edge_precision": 0.0, "edge_recall": 0.0, "edge_f1": 0.0, "shd": 0.0}
 
     tp = len(pred & gold)
     fp = len(pred - gold)
@@ -29,4 +29,8 @@ def score_predicted_edges(pred_text: str, gold: Set[str]) -> Dict[str, float]:
     precision = tp / max(1, tp + fp)
     recall = tp / max(1, tp + fn)
     f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) > 0 else 0.0
-    return {"edge_precision": precision, "edge_recall": recall, "edge_f1": f1}
+
+    # SHD for directed graphs (simple): additions + deletions (no reversal handling beyond add/del).
+    shd = float(fp + fn)
+
+    return {"edge_precision": precision, "edge_recall": recall, "edge_f1": f1, "shd": shd}

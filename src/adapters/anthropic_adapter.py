@@ -12,8 +12,8 @@ class AnthropicAdapter(BaseAdapter):
                 "ANTHROPIC_API_KEY environment variable is required.\n"
                 "To fix this:\n"
                 "1. Get an API key from https://console.anthropic.com/\n"
-                "2. Set it: export ANTHROPIC_API_KEY='sk-ant-your-key-here'\n"
-                "3. Or use mock adapter by changing 'provider: anthropic' to 'provider: mock' in your YAML"
+                "2. Set it, e.g.: export ANTHROPIC_API_KEY='YOUR_ANTHROPIC_KEY_HERE'\n"
+                "3. Or use the mock adapter by changing 'provider: anthropic' to 'provider: mock' in your YAML"
             )
         self.client = anthropic.Anthropic(api_key=api_key)
     
