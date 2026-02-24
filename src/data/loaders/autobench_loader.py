@@ -30,51 +30,39 @@ def load_autobench(path: Optional[str] = None, limit: Optional[int] = 20) -> Lis
     If no `path` is provided, returns a small synthetic toy set (for smoke tests).
     """
 
-    # Real-data path
-    if path:
-        rows = read_json_or_jsonl(path)
-        if limit:
-            rows = rows[: int(limit)]
+    if not path:
+        raise ValueError(
+            "AutoBench loader requires a real dataset path (JSONL/JSON). "
+            "Set data.path in the experiment YAML."
+        )
 
-        items: List[TaskItem] = []
-        for i, r in enumerate(rows):
-            rid = str(r.get("id") or f"ab-{i}")
-            domain = str(r.get("domain") or "physics")
-            nodes = r.get("nodes") or r.get("variables") or ["A", "B", "C"]
-            edges = _coerce_edges(r.get("edges") or r.get("gold_edges"))
-            split = str(r.get("split") or "test")
-            prompt = r.get("prompt")
+    rows = read_json_or_jsonl(path)
+    if limit:
+        rows = rows[: int(limit)]
 
-            items.append(
-                TaskItem(
-                    id=rid,
-                    domain=domain,
-                    task_type="causal",
-                    input={
-                        "prompt": prompt,
-                        "nodes": nodes,
-                        # Optional agentic fields for future: observations/interventions.
-                        "observations": r.get("observations"),
-                        "interventions": r.get("interventions") or [],
-                    },
-                    gold={"edges": edges},
-                    split=split,
-                )
-            )
-
-        return items
-
-    # Fallback: produce a tiny causal discovery toy set
     items: List[TaskItem] = []
-    for i in range(limit or 10):
+    for i, r in enumerate(rows):
+        rid = str(r.get("id") or f"ab-{i}")
+        domain = str(r.get("domain") or "physics")
+        nodes = r.get("nodes") or r.get("variables") or ["A", "B", "C"]
+        edges = _coerce_edges(r.get("edges") or r.get("gold_edges"))
+        split = str(r.get("split") or "test")
+        prompt = r.get("prompt")
+
         items.append(
             TaskItem(
-                id=f"auto-{i}",
-                domain="physics",
+                id=rid,
+                domain=domain,
                 task_type="causal",
-                input={"nodes": ["A", "B", "C"], "interventions": []},
-                gold={"edges": [("A", "B"), ("B", "C")]},
-                split="iid" if i < ((limit or 10) // 2) else "ood",
+                input={
+                    "prompt": prompt,
+                    "nodes": nodes,
+                    "observations": r.get("observations"),
+                    "interventions": r.get("interventions") or [],
+                },
+                gold={"edges": edges},
+                split=split,
             )
         )
+
     return items

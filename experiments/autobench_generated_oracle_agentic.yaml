@@ -1,5 +1,5 @@
-name: autobench-generated-oracle-agentic-mock
-description: Auto-Bench-like generated causal discovery tasks with offline oracle tool-use (MOCK)
+name: autobench-generated-oracle-agentic-openai
+description: Auto-Bench-like generated causal discovery tasks with offline oracle tool-use (OpenAI)
 random_seed: 42
 
 data:
@@ -8,8 +8,8 @@ data:
   limit: 100
 
 model:
-  provider: mock
-  model: mock-science-001
+  provider: openai
+  model: gpt-3.5-turbo
   temperature: 0.0
   top_p: 1.0
   max_tokens: 512

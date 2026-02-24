@@ -1,15 +1,15 @@
-name: quick-autobench-mock
-description: Dry run on synthetic Auto-Bench-like causal tasks (MOCK model)
+name: quick-autobench-openai
+description: Dry run on AutoBench causal tasks (OpenAI model)
 random_seed: 42
 
 data:
-  loader: synthetic   # swap to autobench when you plug real data
-  path: null
+  loader: autobench
+  path: data/autobench/sample_autobench_subset.jsonl
   limit: 12
 
 model:
-  provider: mock
-  model: mock-science-001
+  provider: openai
+  model: gpt-3.5-turbo
   temperature: 0.0
   top_p: 1.0
   max_tokens: 512

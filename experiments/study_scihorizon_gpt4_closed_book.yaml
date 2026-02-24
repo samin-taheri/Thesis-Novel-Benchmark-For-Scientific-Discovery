@@ -1,10 +1,10 @@
 name: study-scihorizon
-description: Study run (SciHorizon placeholder) - OpenAI GPT-4 - closed_book
+description: Study run (SciHorizon real subset) - OpenAI GPT-4 - closed_book
 random_seed: 42
 
 data:
   loader: scihorizon
-  path: null
+  path: data/scihorizon/scihorizon_real_subset.jsonl
   limit: 30
 
 model:

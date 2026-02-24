@@ -1,0 +1,8 @@
+{"id":"scih-real-001","domain":"physics","task_type":"qa","input":{"question":"What equation states Newton's second law?"},"gold":{"answer":"F = m * a"},"split":"iid"}
+{"id":"scih-real-002","domain":"physics","task_type":"qa","input":{"question":"In Ohm's law, how are voltage, current, and resistance related?"},"gold":{"answer":"V = I * R"},"split":"iid"}
+{"id":"scih-real-003","domain":"biology","task_type":"qa","input":{"question":"What does differential expression analysis compare?"},"gold":{"answer":"Gene expression between conditions"},"split":"iid"}
+{"id":"scih-real-004","domain":"biology","task_type":"qa","input":{"question":"Name one follow-up validation for differential expression findings."},"gold":{"answer":"qPCR validation"},"split":"iid"}
+{"id":"scih-real-005","domain":"general","task_type":"qa","input":{"question":"What is required for a hypothesis to be testable?"},"gold":{"answer":"A mechanism and a falsifiable prediction"},"split":"ood"}
+{"id":"scih-real-006","domain":"general","task_type":"qa","input":{"question":"Why are controls important in experiment design?"},"gold":{"answer":"To isolate variables and attribute effects"},"split":"ood"}
+{"id":"scih-real-007","domain":"biology","task_type":"qa","input":{"question":"Which experiment perturbs gene function directly: knockdown or literature review?"},"gold":{"answer":"Knockdown"},"split":"ood"}
+{"id":"scih-real-008","domain":"physics","task_type":"qa","input":{"question":"If resistance is constant, what happens to current when voltage doubles?"},"gold":{"answer":"Current doubles"},"split":"ood"}

@@ -1,10 +1,10 @@
 name: study-researchbench
-description: Study run (ResearchBench placeholder) - OpenAI GPT-3.5 - closed_book
+description: Study run (ResearchBench real subset) - OpenAI GPT-3.5 - closed_book
 random_seed: 42
 
 data:
   loader: researchbench
-  path: null
+  path: data/researchbench/researchbench_real_subset.jsonl
   limit: 30
 
 model:

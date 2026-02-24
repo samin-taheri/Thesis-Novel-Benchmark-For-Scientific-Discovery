@@ -1,0 +1,8 @@
+{"id":"sr-real-001","domain":"physics","task_type":"equation","input":{"x":[0,1,2,3,4],"y":[1,3,5,7,9]},"gold":{"law":"2*x + 1"},"split":"iid"}
+{"id":"sr-real-002","domain":"physics","task_type":"equation","input":{"x":[-2,-1,0,1,2],"y":[12,6,2,0,0]},"gold":{"law":"x**2 - 3*x + 2"},"split":"iid"}
+{"id":"sr-real-003","domain":"physics","task_type":"equation","input":{"x":[0,2,4,6,8],"y":[4,3,2,1,0]},"gold":{"law":"-0.5*x + 4"},"split":"iid"}
+{"id":"sr-real-004","domain":"physics","task_type":"equation","input":{"x":[-1,0,1,2,3],"y":[-10,-7,-4,-1,2]},"gold":{"law":"3*x - 7"},"split":"iid"}
+{"id":"sr-real-005","domain":"physics","task_type":"equation","input":{"x":[-3,-2,-1,0,1],"y":[4,1,0,1,4]},"gold":{"law":"x**2 + 2*x + 1"},"split":"ood"}
+{"id":"sr-real-006","domain":"physics","task_type":"equation","input":{"x":[0,1,2,3,4],"y":[0,3,4,3,0]},"gold":{"law":"-x**2 + 4*x"},"split":"ood"}
+{"id":"sr-real-007","domain":"physics","task_type":"equation","input":{"x":[0,4,8,12,16],"y":[-2,1,4,7,10]},"gold":{"law":"0.75*x - 2"},"split":"ood"}
+{"id":"sr-real-008","domain":"physics","task_type":"equation","input":{"x":[-2,-1,0,1,2],"y":[5,5,5,5,5]},"gold":{"law":"5"},"split":"ood"}

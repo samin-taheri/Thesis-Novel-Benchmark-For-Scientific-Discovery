@@ -1,16 +1,19 @@
 from typing import List, Optional
 from ..schemas import TaskItem
+import json
 
 def load_biodsa(path: Optional[str]=None, limit: Optional[int]=20) -> List[TaskItem]:
-    # Placeholder: executable analysis style task
+    if not path:
+        raise ValueError(
+            "BioDSA loader requires a real dataset path (JSONL). "
+            "Set data.path in the experiment YAML."
+        )
+
     items = []
-    for i in range(limit or 10):
-        items.append(TaskItem(
-            id=f"bio-{i}",
-            domain="biomed",
-            task_type="analysis",
-            input={"table": {"x":[1,2,3,4], "y":[2,4,6,9]}},
-            gold={"regression":"~ linear-ish"},
-            split="iid"
-        ))
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            rec = json.loads(line)
+            items.append(TaskItem(**rec))
+            if limit and len(items) >= limit:
+                break
     return items

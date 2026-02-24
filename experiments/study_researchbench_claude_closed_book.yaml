@@ -1,10 +1,10 @@
 name: study-researchbench
-description: Study run (ResearchBench placeholder) - Anthropic Claude - closed_book
+description: Study run (ResearchBench real subset) - Anthropic Claude - closed_book
 random_seed: 42
 
 data:
   loader: researchbench
-  path: null
+  path: data/researchbench/researchbench_real_subset.jsonl
   limit: 30
 
 model:

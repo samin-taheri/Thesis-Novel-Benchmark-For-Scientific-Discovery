@@ -1,10 +1,10 @@
 name: study-baisbench
-description: Study run (BaisBench placeholder) - Anthropic Claude - closed_book
+description: Study run (BaisBench real subset) - Anthropic Claude - closed_book
 random_seed: 42
 
 data:
   loader: baisbench
-  path: null
+  path: data/baisbench/baisbench_real_subset.jsonl
   limit: 30
 
 model:

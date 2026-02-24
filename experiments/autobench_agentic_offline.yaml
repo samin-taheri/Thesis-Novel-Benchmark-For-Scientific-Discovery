@@ -1,5 +1,5 @@
-name: autobench-agentic-offline-mock
-description: Auto-Bench-style causal discovery with offline agentic tool-use (MOCK)
+name: autobench-agentic-offline-openai
+description: Auto-Bench-style causal discovery with offline agentic tool-use (OpenAI)
 random_seed: 42
 
 data:
@@ -8,8 +8,8 @@ data:
   limit: 50
 
 model:
-  provider: mock
-  model: mock-science-001
+  provider: openai
+  model: gpt-3.5-turbo
   temperature: 0.0
   top_p: 1.0
   max_tokens: 512

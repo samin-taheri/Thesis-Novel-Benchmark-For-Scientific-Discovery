@@ -1,15 +1,15 @@
-name: quick-srbench-mock
-description: Dry run on synthetic equation discovery tasks (MOCK model)
+name: quick-srbench-openai
+description: Dry run on SRBench equation discovery tasks (OpenAI model)
 random_seed: 42
 
 data:
   loader: llm_srbench
-  path: null
+  path: data/llm_srbench/llm_srbench_real_subset.jsonl
   limit: 10
 
 model:
-  provider: mock
-  model: mock-science-001
+  provider: openai
+  model: gpt-3.5-turbo
   temperature: 0.0
   top_p: 1.0
   max_tokens: 512

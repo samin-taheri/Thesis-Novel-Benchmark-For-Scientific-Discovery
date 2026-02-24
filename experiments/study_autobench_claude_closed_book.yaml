@@ -4,7 +4,7 @@ random_seed: 42
 
 data:
   loader: autobench
-  path: data/autobench/generated_autobench.jsonl
+  path: data/autobench/sample_autobench_subset.jsonl
   limit: 50
 
 model:
