@@ -10,7 +10,7 @@ The framework runs **controlled experiments** across multiple LLM providers (Ope
 
 ### Purpose
 
-In a typical thesis evaluation you need to:
+In a typical thesis evaluation we need to:
 1. **Compare models fairly** — same data, same prompts, same scoring.
 2. **Measure multiple dimensions** — not just accuracy, but also novelty, reasoning depth, consistency, and token efficiency.
 3. **Produce reproducible evidence** — every run generates a manifest (exact config, git commit, dependency snapshot) so results can be independently verified.
