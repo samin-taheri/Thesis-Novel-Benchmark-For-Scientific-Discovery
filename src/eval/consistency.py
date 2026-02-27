@@ -1,6 +1,6 @@
-from __future__ import annotations
+"""Consistency metric: threshold-based pass/fail derived from accuracy."""
 
-from typing import Any, Dict
+from __future__ import annotations
 
 
 def consistency_pass_from_acc(acc: float) -> bool:

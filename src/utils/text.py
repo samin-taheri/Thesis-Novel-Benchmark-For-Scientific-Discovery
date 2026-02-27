@@ -1,7 +1,9 @@
+"""Text processing utilities for parsing model outputs."""
+
 from __future__ import annotations
 
 import re
-from typing import Iterable, List, Tuple
+from typing import List, Tuple
 
 
 def normalize_edge(u: str, v: str) -> str:

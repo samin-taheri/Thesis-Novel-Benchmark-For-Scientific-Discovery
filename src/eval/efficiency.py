@@ -1,9 +1,15 @@
+"""Token efficiency scorer.
+
+Maps total token usage to a 0-1 score where lower usage is better.
+"""
+
 from __future__ import annotations
 
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 
-def efficiency_from_usage(usage: Dict[str, Any] | None) -> float:
+def efficiency_from_usage(usage: Optional[Dict[str, Any]]) -> float:
+    """Return an efficiency score in [0, 1] based on total token count."""
     usage = usage or {}
     total = float(usage.get("total_tokens") or 0)
     if total <= 0:

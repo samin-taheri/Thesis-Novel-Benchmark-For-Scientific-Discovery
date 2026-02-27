@@ -1,6 +1,12 @@
+"""Per-item scoring dispatcher.
+
+Routes each task to its type-specific scorer (equation, causal, QA) and
+appends cross-cutting metrics (novelty, reasoning depth, efficiency).
+"""
+
 from __future__ import annotations
 
-from typing import Dict, Any
+from typing import Any, Dict
 
 import numpy as np
 

@@ -1,3 +1,5 @@
+"""Interactive scenario: simulated multi-turn hypothesis revision."""
+
 from typing import Any, Dict, Optional
 
 

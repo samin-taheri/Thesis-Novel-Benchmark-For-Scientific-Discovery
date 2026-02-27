@@ -1,8 +1,12 @@
+"""Synthetic data loader for pipeline dry-runs."""
+
 from typing import List, Optional
+
 from ..schemas import TaskItem
 
-def load_synthetic(path: Optional[str]=None, limit: Optional[int]=10) -> List[TaskItem]:
-    # Minimal synthetic mixed set for end-to-end dry run
+
+def load_synthetic(path: Optional[str] = None, limit: Optional[int] = 10) -> List[TaskItem]:
+    """Generate a minimal mixed set of tasks for end-to-end testing."""
     items = []
     for i in range(limit):
         ttype = ["equation","causal","qa"][i % 3]

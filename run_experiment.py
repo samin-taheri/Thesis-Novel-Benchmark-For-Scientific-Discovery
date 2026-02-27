@@ -1,12 +1,27 @@
-import argparse, yaml, time
-import os, sys, platform, subprocess
+"""CLI entry point for running a single benchmark experiment.
+
+Usage:
+    python run_experiment.py experiments/<config>.yaml
+
+The runner reads the YAML config, initialises the evaluator, executes the
+benchmark, and writes all output artifacts to ``results/``.
+"""
+
+import argparse
+import os
+import platform
+import subprocess
+import sys
+import time
 from typing import List, Optional
+
+import yaml
 from dotenv import load_dotenv
 
 from src.config import ExperimentConfig
-from src.utils.io import ensure_dirs
 from src.eval.evaluator import Evaluator
 from src.eval.reporters import save_reports
+from src.utils.io import ensure_dirs
 
 
 def _slug(s: str) -> str:

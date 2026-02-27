@@ -1,8 +1,17 @@
+"""Abstract base class that all LLM provider adapters must implement."""
+
 from abc import ABC, abstractmethod
-from typing import Dict, Any
+from typing import Any, Dict, List, Optional
+
 
 class BaseAdapter(ABC):
-    def __init__(self, model: str, temperature: float, top_p: float, max_tokens: int, tools=None):
+    """Common interface for LLM adapters.
+
+    Subclasses must implement `generate()`, which takes a prompt string and
+    task metadata and returns a dict with keys: content, rationale, usage.
+    """
+
+    def __init__(self, model: str, temperature: float, top_p: float, max_tokens: int, tools: Optional[List[str]] = None):
         self.model = model
         self.temperature = temperature
         self.top_p = top_p

@@ -1,17 +1,32 @@
-from typing import Tuple, List, Dict, Any
-from pydantic import BaseModel
+"""Core evaluation loop.
+
+The `Evaluator` class orchestrates data loading, prompt construction,
+LLM inference, and per-item scoring for a single experiment run.
+"""
+
+from typing import List, Tuple
+
 import pandas as pd
-from ..utils.random_seed import fix_seed
-from ..utils.logging import get_logger
-from ..data.loaders import load_autobench, load_llm_srbench, load_scihorizon, load_researchbench, load_biodsa, load_synthetic, load_baisbench
-from ..data.schemas import TaskItem
-from ..scenarios import SCENARIOS
-from ..eval.judge_science import score_item
-from ..eval.metrics_science import summarize_metrics
+
 from ..adapters import ADAPTERS
 from ..config import ExperimentConfig
+from ..data.loaders import (
+    load_autobench,
+    load_baisbench,
+    load_biodsa,
+    load_llm_srbench,
+    load_researchbench,
+    load_scihorizon,
+    load_synthetic,
+)
+from ..data.schemas import TaskItem
+from ..eval.judge_science import score_item
+from ..eval.metrics_science import summarize_metrics
+from ..scenarios import SCENARIOS
 from ..tools.tool_registry import ToolRegistry
+from ..utils.logging import get_logger
 from ..utils.paths import data_path
+from ..utils.random_seed import fix_seed
 
 LOADER_MAP = {
     "autobench": load_autobench,
@@ -23,7 +38,10 @@ LOADER_MAP = {
     "synthetic": load_synthetic,
 }
 
+
 class Evaluator:
+    """Run all tasks through the configured scenario + adapter and collect scores."""
+
     def __init__(self, cfg: ExperimentConfig, run_id: str):
         self.cfg = cfg
         self.logger = get_logger("evaluator", run_id)
@@ -33,12 +51,18 @@ class Evaluator:
         loader = LOADER_MAP[cfg.data.loader]
         self.items: List[TaskItem] = loader(cfg.data.path, cfg.data.limit)
 
-        # Scenario
+        # Scenario (prompt/workflow strategy)
         self.scenario = SCENARIOS[cfg.scenario.name](cfg.scenario.params)
 
-        # Model adapter
-        A = ADAPTERS[cfg.model.provider]
-        self.adapter = A(cfg.model.model, cfg.model.temperature, cfg.model.top_p, cfg.model.max_tokens, cfg.model.tools)
+        # Model adapter (LLM provider)
+        adapter_cls = ADAPTERS[cfg.model.provider]
+        self.adapter = adapter_cls(
+            cfg.model.model,
+            cfg.model.temperature,
+            cfg.model.top_p,
+            cfg.model.max_tokens,
+            cfg.model.tools,
+        )
 
         # Offline tools available to agentic scenarios
         self.tool_registry = ToolRegistry.from_config(

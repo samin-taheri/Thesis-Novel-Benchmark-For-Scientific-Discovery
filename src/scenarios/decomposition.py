@@ -1,3 +1,5 @@
+"""Decomposition scenario: plan, decompose, solve, synthesize."""
+
 from typing import Any, Dict, Optional
 
 

@@ -1,8 +1,17 @@
+"""Mock adapter for offline pipeline testing without API calls."""
+
+from typing import Any, Dict
+
 from .base import BaseAdapter
-from typing import Dict, Any
-import random
+
 
 class MockAdapter(BaseAdapter):
+    """Returns deterministic responses for each task type.
+
+    Used for end-to-end pipeline validation and CI without incurring
+    API costs.  Not intended for thesis evaluation runs.
+    """
+
     def generate(self, prompt: str, meta: Dict[str, Any]) -> Dict[str, Any]:
         # A deterministic but fake "scientific" response for pipeline testing
         task = meta.get("task_type", "unknown")

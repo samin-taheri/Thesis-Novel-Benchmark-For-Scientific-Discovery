@@ -1,4 +1,14 @@
+"""Output writers for experiment results.
+
+Produces four artifacts per run:
+  - summary CSV   (aggregated metrics by task type / split)
+  - items CSV     (per-item predictions, scores, token usage)
+  - report MD     (human-readable Markdown tables)
+  - metrics JSON  (machine-readable flat metrics for cross-run aggregation)
+"""
+
 import json
+
 import pandas as pd
 from tabulate import tabulate
 

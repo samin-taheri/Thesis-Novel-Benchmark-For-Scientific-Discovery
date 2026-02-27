@@ -1,6 +1,13 @@
+"""Metric aggregation across task items.
+
+Groups per-item scores by (task_type, split) and computes means.
+"""
+
 import pandas as pd
 
+
 def summarize_metrics(df: pd.DataFrame) -> pd.DataFrame:
+    """Aggregate per-item metrics into a summary table."""
     agg_map = {
         'acc': 'mean',
         'novelty': 'mean',

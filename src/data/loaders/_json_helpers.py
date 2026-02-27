@@ -1,3 +1,5 @@
+"""Helpers for reading JSON and JSONL dataset files."""
+
 from __future__ import annotations
 
 import json

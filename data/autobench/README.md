@@ -20,5 +20,3 @@ Example:
 
 ## (2) JSON
 A single JSON file containing a list of objects with the same fields as above.
-
-If you have the official Auto-Bench format, we can add a dedicated parser once you drop one sample file into this folder.

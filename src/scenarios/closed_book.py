@@ -1,4 +1,6 @@
-from typing import Dict, Any, Optional
+"""Closed-book scenario: pure reasoning with no external tools."""
+
+from typing import Any, Dict, Optional
 
 
 class ClosedBook:

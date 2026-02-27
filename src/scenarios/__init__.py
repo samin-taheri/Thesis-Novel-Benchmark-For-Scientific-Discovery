@@ -1,3 +1,9 @@
+"""Evaluation scenario strategies.
+
+Each scenario controls how a TaskItem is transformed into a prompt (or a
+multi-step agentic workflow) before being sent to the LLM adapter.
+"""
+
 from .closed_book import ClosedBook
 from .tool_assisted import ToolAssisted
 from .decomposition import Decomposition

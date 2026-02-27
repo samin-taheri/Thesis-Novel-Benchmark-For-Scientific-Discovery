@@ -1,3 +1,8 @@
+"""Reasoning depth proxy scorer.
+
+Estimates depth from rationale word count and presence of agent plans.
+"""
+
 from __future__ import annotations
 
 from typing import Any, Dict

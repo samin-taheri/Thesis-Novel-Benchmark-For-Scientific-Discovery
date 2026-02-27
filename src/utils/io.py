@@ -1,7 +1,12 @@
-import os, json, pathlib
-from typing import List, Any, Dict
+"""File-system helpers for the benchmark runner."""
 
-def ensure_dirs(names: List[str]):
+import json
+import os
+from typing import Any, Dict, List
+
+
+def ensure_dirs(names: List[str]) -> None:
+    """Create directories if they do not exist."""
     for n in names:
         os.makedirs(n, exist_ok=True)
 

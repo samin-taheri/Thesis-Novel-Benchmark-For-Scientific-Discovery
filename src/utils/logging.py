@@ -1,6 +1,11 @@
-import logging, os
+"""Logging configuration for experiment runs."""
 
-def get_logger(name: str, run_id: str):
+import logging
+import os
+
+
+def get_logger(name: str, run_id: str) -> logging.Logger:
+    """Return a logger that writes to both a run-specific file and stderr."""
     os.makedirs("logs", exist_ok=True)
     logger = logging.getLogger(name)
     logger.setLevel(logging.INFO)

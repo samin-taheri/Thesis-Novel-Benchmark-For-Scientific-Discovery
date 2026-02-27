@@ -1,3 +1,5 @@
+"""Tool-assisted scenario: model is instructed to use calculations."""
+
 from typing import Any, Dict, Optional
 
 
