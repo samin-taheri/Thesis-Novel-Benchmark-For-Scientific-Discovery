@@ -1,4 +1,4 @@
-# Thesis Benchmark: Evaluating LLMs on Scientific Discovery Tasks
+# TOWARDS A NOVEL BENCHMARK FOR AUTONOMOUS SCIENTIFIC DISCOVERY: A COMPARATIVE EVALUATION
 
 ## What This Project Does
 
