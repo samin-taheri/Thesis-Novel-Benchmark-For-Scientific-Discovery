@@ -4,16 +4,16 @@
 
 This project is a **benchmarking framework** that systematically evaluates how well Large Language Models (LLMs) perform on scientific discovery tasks. It answers the research question:
 
-> *How do state-of-the-art LLMs compare when asked to perform core scientific reasoning — discovering equations from data, inferring causal graphs, answering science questions, and proposing research hypotheses?*
+> *How do state-of-the-art LLMs compare when asked to perform core scientific reasoning, discovering equations from data, inferring causal graphs, answering science questions, and proposing research hypotheses?*
 
 The framework runs **controlled experiments** across multiple LLM providers (OpenAI GPT-3.5/GPT-4, Anthropic Claude, Google Gemini) on five benchmark families, under identical conditions, and produces quantitative metrics and reproducible reports.
 
 ### Purpose
 
 In a typical thesis evaluation we need to:
-1. **Compare models fairly** — same data, same prompts, same scoring.
-2. **Measure multiple dimensions** — not just accuracy, but also novelty, reasoning depth, consistency, and token efficiency.
-3. **Produce reproducible evidence** — every run generates a manifest (exact config, git commit, dependency snapshot) so results can be independently verified.
+1. **Compare models fairly**: same data, same prompts, same scoring.
+2. **Measure multiple dimensions**: not just accuracy, but also novelty, reasoning depth, consistency, and token efficiency.
+3. **Produce reproducible evidence**: every run generates a manifest (exact config, git commit, dependency snapshot) so results can be independently verified.
 
 This framework automates all three.
 
@@ -29,15 +29,15 @@ The pipeline has five stages, driven by a single YAML configuration file:
 └─────────────┘     └──────────────┘     └────────────┘     └───────────┘     └───────────┘
 ```
 
-1. **Data Loading** — A loader reads benchmark tasks from JSONL files into a common `TaskItem` schema. Each task has an ID, domain, task type, input data, and gold-standard answer.
+1. **Data Loading**: A loader reads benchmark tasks from JSONL files into a common `TaskItem` schema. Each task has an ID, domain, task type, input data, and gold-standard answer.
 
-2. **Prompt Construction** — A scenario module (e.g. closed-book, tool-assisted, decomposition) transforms the task into a prompt appropriate for the evaluation mode.
+2. **Prompt Construction**: A scenario module (e.g. closed-book, tool-assisted, decomposition) transforms the task into a prompt appropriate for the evaluation mode.
 
-3. **LLM Inference** — An adapter sends the prompt to the chosen provider's API and returns the model's response with token usage metadata.
+3. **LLM Inference**: An adapter sends the prompt to the chosen provider's API and returns the model's response with token usage metadata.
 
-4. **Scoring** — A judge module compares the model output against the gold standard. For equations it checks numeric equivalence; for causal graphs it computes edge precision/recall/F1 and structural Hamming distance (SHD); for QA it checks answer containment. Cross-cutting metrics (novelty, reasoning depth, efficiency) are computed for every task.
+4. **Scoring**: A judge module compares the model output against the gold standard. For equations it checks numeric equivalence; for causal graphs it computes edge precision/recall/F1 and structural Hamming distance (SHD); for QA it checks answer containment. Cross-cutting metrics (novelty, reasoning depth, efficiency) are computed for every task.
 
-5. **Reporting** — Results are saved as per-item CSV, aggregated summary CSV, a human-readable Markdown report, a machine-readable metrics JSON, and a full manifest YAML recording the exact environment.
+5. **Reporting**: Results are saved as per-item CSV, aggregated summary CSV, a human-readable Markdown report, a machine-readable metrics JSON, and a full manifest YAML recording the exact environment.
 
 ### Benchmarks Included
 
